@@ -1,0 +1,171 @@
+{
+  "project": {
+    "projectSettingsVersion": "2.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": null,
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "icon.png": {
+        "previousModTime": 1463097408000,
+        "modified": 1463097408000,
+        "seen": true,
+        "name": "icon.png"
+      },
+      "ledblink.xdk": {
+        "previousModTime": 1463097408000,
+        "modified": 1463097408000,
+        "seen": true,
+        "name": "ledblink.xdk"
+      },
+      "ledblink.xdke": {
+        "previousModTime": 1464900688000,
+        "modified": 1464900688000,
+        "seen": true,
+        "name": "ledblink.xdke"
+      },
+      "main.js": {
+        "previousModTime": 1464900542000,
+        "modified": 1464900542000,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1464755479000,
+        "modified": 1464755479000,
+        "seen": true,
+        "name": "package.json"
+      },
+      "README.md": {
+        "previousModTime": 1463097408000,
+        "modified": 1463097408000,
+        "seen": true,
+        "name": "README.md"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1463097408000,
+        "modified": 1463097408000,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      },
+      "actuator.js": {
+        "previousModTime": 1464764297000,
+        "modified": 1464764297000,
+        "seen": true,
+        "name": "actuator.js"
+      },
+      "board.js": {
+        "previousModTime": 1464900685000,
+        "modified": 1464900685000,
+        "seen": true,
+        "name": "board.js"
+      },
+      "config.js": {
+        "previousModTime": 1464755852000,
+        "modified": 1464755852000,
+        "seen": true,
+        "name": "config.js"
+      },
+      "mocks.js": {
+        "previousModTime": 1464675882000,
+        "modified": 1464675882000,
+        "seen": true,
+        "name": "mocks.js"
+      },
+      "server.js": {
+        "previousModTime": 1464673812000,
+        "modified": 1464673812000,
+        "seen": true,
+        "name": "server.js"
+      },
+      "states.js": {
+        "previousModTime": 1464764297000,
+        "modified": 1464764297000,
+        "seen": true,
+        "name": "states.js"
+      },
+      "sensorStates.js": {
+        "previousModTime": 1464816265000,
+        "modified": 1464816265000,
+        "seen": true,
+        "name": "sensorStates.js"
+      },
+      "conf/actuatorSates.js": {
+        "previousModTime": 1464896943000,
+        "modified": 1464896943000,
+        "seen": true,
+        "name": "conf/actuatorSates.js"
+      },
+      "conf/config.js": {
+        "previousModTime": 1464755852000,
+        "modified": 1464755852000,
+        "seen": true,
+        "name": "conf/config.js"
+      },
+      "conf/mocks.js": {
+        "previousModTime": 1464811433000,
+        "modified": 1464811433000,
+        "seen": true,
+        "name": "conf/mocks.js"
+      },
+      "conf/sensorStates.js": {
+        "previousModTime": 1464897147000,
+        "modified": 1464897147000,
+        "seen": true,
+        "name": "conf/sensorStates.js"
+      }
+    },
+    "boardFileStatus": {
+      "icon.png": {
+        "previousModTime": 1464901894658
+      },
+      "main.js": {
+        "previousModTime": 1464901894658
+      },
+      "package.json": {
+        "previousModTime": 1464901894658
+      },
+      "README.md": {
+        "previousModTime": 1464901894658
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1464901894658
+      },
+      "actuator.js": {
+        "previousModTime": 1464901894658
+      },
+      "board.js": {
+        "previousModTime": 1464901894658
+      },
+      "config.js": {
+        "previousModTime": 1464901894658
+      },
+      "mocks.js": {
+        "previousModTime": 1464901894658
+      },
+      "server.js": {
+        "previousModTime": 1464901894658
+      },
+      "states.js": {
+        "previousModTime": 1464901894658
+      },
+      "sensorStates.js": {
+        "previousModTime": 1464901894658
+      },
+      "conf/actuatorSates.js": {
+        "previousModTime": 1464901894658
+      },
+      "conf/config.js": {
+        "previousModTime": 1464901894658
+      },
+      "conf/mocks.js": {
+        "previousModTime": 1464901894658
+      },
+      "conf/sensorStates.js": {
+        "previousModTime": 1464901894658
+      }
+    }
+  }
+}
