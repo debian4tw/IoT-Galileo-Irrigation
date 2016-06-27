@@ -27,20 +27,20 @@
         "name": "ledblink.xdke"
       },
       "main.js": {
-        "previousModTime": 1464900542000,
-        "modified": 1464900542000,
+        "previousModTime": 1466813493000,
+        "modified": 1466813493000,
         "seen": true,
         "name": "main.js"
       },
       "package.json": {
-        "previousModTime": 1464755479000,
-        "modified": 1464755479000,
+        "previousModTime": 1466810205000,
+        "modified": 1466810205000,
         "seen": true,
         "name": "package.json"
       },
       "README.md": {
-        "previousModTime": 1463097408000,
-        "modified": 1463097408000,
+        "previousModTime": 1466235137000,
+        "modified": 1466235137000,
         "seen": true,
         "name": "README.md"
       },
@@ -99,8 +99,8 @@
         "name": "conf/actuatorSates.js"
       },
       "conf/config.js": {
-        "previousModTime": 1464755852000,
-        "modified": 1464755852000,
+        "previousModTime": 1466816976000,
+        "modified": 1466816976000,
         "seen": true,
         "name": "conf/config.js"
       },
@@ -115,56 +115,446 @@
         "modified": 1464897147000,
         "seen": true,
         "name": "conf/sensorStates.js"
+      },
+      "galileo-server.sublime-project": {
+        "previousModTime": 1466745426000,
+        "modified": 1466745426000,
+        "seen": true,
+        "name": "galileo-server.sublime-project"
+      },
+      "galileo-server.xdk": {
+        "previousModTime": 1463097408000,
+        "modified": 1463097408000,
+        "seen": true,
+        "name": "galileo-server.xdk"
+      },
+      "galileo-server.xdke": {
+        "previousModTime": 1464901895000,
+        "modified": 1464901895000,
+        "seen": true,
+        "name": "galileo-server.xdke"
+      },
+      "mydb.sqlite3": {
+        "previousModTime": 1466141898000,
+        "modified": 1466141898000,
+        "seen": true,
+        "name": "mydb.sqlite3"
+      },
+      "untitled.sublime-project": {
+        "previousModTime": 1466810105000,
+        "modified": 1466810105000,
+        "seen": true,
+        "name": "untitled.sublime-project"
+      },
+      "untitled.sublime-workspace": {
+        "previousModTime": 1466745426000,
+        "modified": 1466745426000,
+        "seen": true,
+        "name": "untitled.sublime-workspace"
+      },
+      "conf/actions.js": {
+        "previousModTime": 1466313351000,
+        "modified": 1466313351000,
+        "seen": true,
+        "name": "conf/actions.js"
+      },
+      "conf/actuatorStates.js": {
+        "previousModTime": 1466029740000,
+        "modified": 1466029740000,
+        "seen": true,
+        "name": "conf/actuatorStates.js"
+      },
+      "docs/board.html": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/board.html"
+      },
+      "docs/board.js.html": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/board.js.html"
+      },
+      "docs/conf.json": {
+        "previousModTime": 1466746126000,
+        "modified": 1466746126000,
+        "seen": true,
+        "name": "docs/conf.json"
+      },
+      "docs/index.html": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/index.html"
+      },
+      "docs/server.html": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/server.html"
+      },
+      "docs/server.js.html": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/server.js.html"
+      },
+      "docs/storage.html": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/storage.html"
+      },
+      "docs/storage.js.html": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/storage.js.html"
+      },
+      "docs/fonts/OpenSans-Bold-webfont.eot": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Bold-webfont.eot"
+      },
+      "docs/fonts/OpenSans-Bold-webfont.svg": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Bold-webfont.svg"
+      },
+      "docs/fonts/OpenSans-Bold-webfont.woff": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Bold-webfont.woff"
+      },
+      "docs/fonts/OpenSans-BoldItalic-webfont.eot": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-BoldItalic-webfont.eot"
+      },
+      "docs/fonts/OpenSans-BoldItalic-webfont.svg": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-BoldItalic-webfont.svg"
+      },
+      "docs/fonts/OpenSans-BoldItalic-webfont.woff": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-BoldItalic-webfont.woff"
+      },
+      "docs/fonts/OpenSans-Italic-webfont.eot": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Italic-webfont.eot"
+      },
+      "docs/fonts/OpenSans-Italic-webfont.svg": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Italic-webfont.svg"
+      },
+      "docs/fonts/OpenSans-Italic-webfont.woff": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Italic-webfont.woff"
+      },
+      "docs/fonts/OpenSans-Light-webfont.eot": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Light-webfont.eot"
+      },
+      "docs/fonts/OpenSans-Light-webfont.svg": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Light-webfont.svg"
+      },
+      "docs/fonts/OpenSans-Light-webfont.woff": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Light-webfont.woff"
+      },
+      "docs/fonts/OpenSans-LightItalic-webfont.eot": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-LightItalic-webfont.eot"
+      },
+      "docs/fonts/OpenSans-LightItalic-webfont.svg": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-LightItalic-webfont.svg"
+      },
+      "docs/fonts/OpenSans-LightItalic-webfont.woff": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-LightItalic-webfont.woff"
+      },
+      "docs/fonts/OpenSans-Regular-webfont.eot": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Regular-webfont.eot"
+      },
+      "docs/fonts/OpenSans-Regular-webfont.svg": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Regular-webfont.svg"
+      },
+      "docs/fonts/OpenSans-Regular-webfont.woff": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/fonts/OpenSans-Regular-webfont.woff"
+      },
+      "docs/scripts/linenumber.js": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/scripts/linenumber.js"
+      },
+      "docs/scripts/prettify/Apache-License-2.0.txt": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/scripts/prettify/Apache-License-2.0.txt"
+      },
+      "docs/scripts/prettify/lang-css.js": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/scripts/prettify/lang-css.js"
+      },
+      "docs/scripts/prettify/prettify.js": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/scripts/prettify/prettify.js"
+      },
+      "docs/styles/jsdoc-default.css": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/styles/jsdoc-default.css"
+      },
+      "docs/styles/prettify-jsdoc.css": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/styles/prettify-jsdoc.css"
+      },
+      "docs/styles/prettify-tomorrow.css": {
+        "previousModTime": 1466746132000,
+        "modified": 1466746132000,
+        "seen": true,
+        "name": "docs/styles/prettify-tomorrow.css"
+      },
+      "modules/board.js": {
+        "previousModTime": 1466817511000,
+        "modified": 1466817511000,
+        "seen": true,
+        "name": "modules/board.js"
+      },
+      "modules/server.js": {
+        "previousModTime": 1466237012000,
+        "modified": 1466237012000,
+        "seen": true,
+        "name": "modules/server.js"
+      },
+      "modules/storage.js": {
+        "previousModTime": 1466237351000,
+        "modified": 1466237351000,
+        "seen": true,
+        "name": "modules/storage.js"
       }
     },
     "boardFileStatus": {
       "icon.png": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "main.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "package.json": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "README.md": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "xdk/project-info.json": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "actuator.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "board.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "config.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "mocks.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "server.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "states.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "sensorStates.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "conf/actuatorSates.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "conf/config.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "conf/mocks.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
       },
       "conf/sensorStates.js": {
-        "previousModTime": 1464901894658
+        "previousModTime": 1466889725720
+      },
+      "galileo-server.sublime-project": {
+        "previousModTime": 1466889725720
+      },
+      "mydb.sqlite3": {
+        "previousModTime": 1466889725720
+      },
+      "untitled.sublime-project": {
+        "previousModTime": 1466889725720
+      },
+      "untitled.sublime-workspace": {
+        "previousModTime": 1466889725720
+      },
+      "conf/actions.js": {
+        "previousModTime": 1466889725720
+      },
+      "conf/actuatorStates.js": {
+        "previousModTime": 1466889725720
+      },
+      "docs/board.html": {
+        "previousModTime": 1466889725720
+      },
+      "docs/board.js.html": {
+        "previousModTime": 1466889725720
+      },
+      "docs/conf.json": {
+        "previousModTime": 1466889725720
+      },
+      "docs/index.html": {
+        "previousModTime": 1466889725720
+      },
+      "docs/server.html": {
+        "previousModTime": 1466889725720
+      },
+      "docs/server.js.html": {
+        "previousModTime": 1466889725720
+      },
+      "docs/storage.html": {
+        "previousModTime": 1466889725720
+      },
+      "docs/storage.js.html": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Bold-webfont.eot": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Bold-webfont.svg": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Bold-webfont.woff": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-BoldItalic-webfont.eot": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-BoldItalic-webfont.svg": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-BoldItalic-webfont.woff": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Italic-webfont.eot": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Italic-webfont.svg": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Italic-webfont.woff": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Light-webfont.eot": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Light-webfont.svg": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Light-webfont.woff": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-LightItalic-webfont.eot": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-LightItalic-webfont.svg": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-LightItalic-webfont.woff": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Regular-webfont.eot": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Regular-webfont.svg": {
+        "previousModTime": 1466889725720
+      },
+      "docs/fonts/OpenSans-Regular-webfont.woff": {
+        "previousModTime": 1466889725720
+      },
+      "docs/scripts/linenumber.js": {
+        "previousModTime": 1466889725720
+      },
+      "docs/scripts/prettify/Apache-License-2.0.txt": {
+        "previousModTime": 1466889725720
+      },
+      "docs/scripts/prettify/lang-css.js": {
+        "previousModTime": 1466889725720
+      },
+      "docs/scripts/prettify/prettify.js": {
+        "previousModTime": 1466889725720
+      },
+      "docs/styles/jsdoc-default.css": {
+        "previousModTime": 1466889725720
+      },
+      "docs/styles/prettify-jsdoc.css": {
+        "previousModTime": 1466889725720
+      },
+      "docs/styles/prettify-tomorrow.css": {
+        "previousModTime": 1466889725720
+      },
+      "modules/board.js": {
+        "previousModTime": 1466889725720
+      },
+      "modules/server.js": {
+        "previousModTime": 1466889725720
+      },
+      "modules/storage.js": {
+        "previousModTime": 1466889725720
       }
     }
   }

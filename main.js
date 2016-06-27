@@ -3,80 +3,66 @@
 
 var config = require('./conf/config');
 var mocks = require('./conf/mocks');
+var actions = require('./conf/actions');
 
-var mraa = false;
-var board = false;
-var server = false;
+//modules
+var storage = require('./modules/storage');
+var board = require('./modules/board');
+var server = require('./modules/server');
 
+storage.init();
+server.init();
+board.init();
 
-if(config.boardEnabled){
-    mraa = require('mraa');
-    board = require('./board')(mraa);
-    board.init();
+board.onActionExecuted = function(triggerAction, actionType){
+
+    var action = { 
+        action: triggerAction,
+        date: new Date().toLocaleString(), 
+        actionType: actionType 
+    };
+    console.log(action);
+
+    storage.save(action); 
 }
 
-
-if(config.serverEnabled){
-    server = require('./server')(mocks,config);
-    server.startHttpServer();
+//Urls
+server.registerUrl('/getHistoricalData', function(){}, function(req, res){
     
-    //registro callbacks de urls de mocks
-    /*
-    for(var x in mocks){
-        server.registerUrl(x,(function(url,action){
-
-            return function(){
-                console.log('requested '+url , action);
-                return action;
-            }
-            
-        }(x,mocks[x])),false);
-    }*/
-    
-    server.registerUrl('/getHistoricalData', function(url){  
-        var content;
-
-        content = actions;
-        
-        return server.response(content);
-         
-    });
-
-
-    server.registerUrl('/getActuatorState', function(url){
-       return {
-           succes: true,
-           date: new Date.toLocaleString(),
-           content: { state: board.getActuatorState() }
-       } 
+    storage.findAll().then(function(users){
+        //var content =  JSON.stringify(users.rows);
+        var content =  users.rows;
+        res.end(server.response(content));
     });
     
+});
+
+server.registerUrl('/getActuatorState', function(url){
     
-    server.registerUrl('/startAction', function(url){
-        board.doAction(1, "auto");
-        return {
-            succes: true,
-            date: new Date.toLocaleString(),
-            content: { state: board.getActuatorState() }           
-        } 
-    });
+    var content;
+    content = board.getActuatorState();
     
+    return server.response(content);
+
+});
+
+server.registerUrl('/startAction', function(url){
     
-    server.registerUrl('/stopAction', function(url){ç
-        board.doAction(2, "auto");
-        return {
-            succes: true,
-            date: new Date.toLocaleString(),
-            content: { state: board.getActuatorState() }           
-        }         
-    });
+    var content;    
+    board.doAction(actions.INICIO_RIEGO, "manual");
 
+    content = board.getActuatorState();
+    
+    return server.response(content);
 
-}
+});
 
+server.registerUrl('/stopAction', function(url){
+    
+    var content;
+    board.doAction(actions.FIN_RIEGO, "manual");
+    content = board.getActuatorState();
+    
+    return server.response(content);
 
-/*
-* prueba escribir archivo
-var fs = require('fs');
-fs.writeFile('/www/pages/gal.html','<html><body><p>Galileo write</p></body></html>');
-*/
+});

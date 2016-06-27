@@ -7,7 +7,7 @@ config.boardEnabled = false;
 //Server
 config.serverEnabled = true;
 config.serverPort = 8080;
-config.mocksEnabled = true;
+config.mocksEnabled = false;
 
 
 module.exports = config;

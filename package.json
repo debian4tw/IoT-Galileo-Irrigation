@@ -1,13 +1,14 @@
 {
-  "name": "OnboardLEDBlink",
+  "name": "galileo-server",
   "description": "",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "main.js",
   "engines": {
     "node": ">=0.10.0"
   },
   "dependencies": {
     "galileo-io": "^0.9.4",
+    "sequelize": "^3.23.3",
     "underscore": "^1.8.3"
   }
 }
