@@ -9,6 +9,7 @@
   "dependencies": {
     "galileo-io": "^0.9.4",
     "sequelize": "^3.23.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "sqlite3" : "^3.1.4"
   }
 }
