@@ -1,7 +1,7 @@
 Galileo server
 --------------
 
-> djskjhafkjhsaksj
+> Compuesto de 3 módulos principales: server, board y storage
 
 Para ejecutar desde una pc:
 

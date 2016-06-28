@@ -10,23 +10,21 @@ Using a ssh client:
 
 Article: https://software.intel.com/en-us/html5/articles/intel-xdk-iot-edition-nodejs-templates
 */
-var sensorStates = require('../conf/sensorStates');
-var actuatorStates = require('../conf/actuatorStates');
 var config = require('../conf/config');
-
 var mraa = false;
 if(config.boardEnabled){
     mraa = require('mraa');
 }
+
+var sensorStates = require('../conf/sensorStates');
+var actuatorStates = require('../conf/actuatorStates');
 
 
 /**
   * Board description
   * @namespace
   */
-
-
-var board = function(fnOnActionExecuted){
+var board = (function(){
     
     var analogPin0;
     var currentSensorState = false;
@@ -35,43 +33,48 @@ var board = function(fnOnActionExecuted){
     var actions = [];
     var leds = {};
     
+    var testFn = function(){
+        console.log('orig');
+    };
 
-    var onActionExecuted = fnOnActionExecuted;
+    var onActionExecuted = function(){};
 
 
-    if(!mraa){        
-        console.log('cannot initialize board, missing mraa');
-        //return;
-    }else{
-
-        console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to the Intel XDK console    
-        setupLeds();
-    }
-
-    /** init function */
-    function init(){
-        console.log('init');
-        if(mraa){
-            loop();    
-        }
-        
-    }
-    
 
     /** loop */
     function loop() {
       Medir_Humedad();
-      setTimeout(loop,3000); //call the indicated function after 1 second (1000 milliseconds)
     }    
+
+    /** init function */
+    function init(){
+        console.log('init');
+        if(!mraa){        
+            console.log('cannot initialize board, missing mraa');
+        }else{
+            console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to the Intel XDK console    
+            setupLeds();
+        }
+
+        setInterval(function(){
+            loop();
+        },3000);        
+        
+    }
+    
+
 
     /** Medir Humedad */    
     function Medir_Humedad() {
-        //humedad1 = analogRead(A5);
-        //Serial.println(humedad1);
-        var humedad = analogPin0.read(); //read the value of the analog pin
-        
+
+        if(mraa){
+            var humedad = analogPin0.read(); //read the value of the analog pin    
+        } else{
+            var humedad = 400;
+        }
+                
         console.log(humedad); //write the value of the analog pin to the console        
-                        
+              
         //var humedad = 400;
         
         for (var x in sensorStates){
@@ -90,15 +93,9 @@ var board = function(fnOnActionExecuted){
     function doAction(triggerAction, actionType){
         //console.log('doAction: ',currentActuatorState, triggerAction);
         if(currentActuatorState != triggerAction){            
-                //console.log('actionType', actionType);
-                //console.log('triggerAction ', triggerAction);
-                //console.log('actuatorStates ',actuatorStates);
-                //console.log(actuatorStates[triggerAction]);
             if(mraa){
-
                 actuator.write(actuatorStates[triggerAction].signal);    
             }
-            
             currentActuatorState = triggerAction;
             //saveAction(new Date().toLocaleString(), triggerAction, actionType);
             onActionExecuted(triggerAction, actionType);
@@ -130,7 +127,7 @@ var board = function(fnOnActionExecuted){
             leds[x].dir(mraa.DIR_OUT); //set the gpio direction to output
         }        
 
-        actuator = new mraa.Gpio(4);
+        actuator = new mraa.Gpio(actuatorStates[1].pin);
         actuator.dir(mraa.DIR_OUT);
         
         analogPin0 = new mraa.Aio(0); //setup access analog input Analog pin #0 (A0)
@@ -153,16 +150,17 @@ var board = function(fnOnActionExecuted){
             }
             currentSensorState = state;
         }
-
-        //myOnboardLed.write(1);
     }
 
     function apagarLed(state){
         console.log('apago led');
         leds[state].write(0);
     }
-  
+    
 
+    function setOnActionExecuted(fn){
+        onActionExecuted = fn;
+    }
         
     return {
         apagarLed : apagarLed,
@@ -170,10 +168,11 @@ var board = function(fnOnActionExecuted){
         getActuatorState: getActuatorState,
         doAction: doAction,
         init: init,
-        onActionExecuted: onActionExecuted
+        setOnActionExecuted: setOnActionExecuted,
+        loop: loop
     }
     
-};
+})();
 
 
 module.exports = board;

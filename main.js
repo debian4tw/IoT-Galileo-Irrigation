@@ -8,12 +8,14 @@ var actions = require('./conf/actions');
 //modules
 var storage = require('./modules/storage');
 var server = require('./modules/server');
+var board = require('./modules/board');
 
 storage.init();
 server.init();
+board.init();
 
-var onActionExecuted = function(triggerAction, actionType){
 
+board.setOnActionExecuted(function(triggerAction, actionType){
     var action = { 
         action: triggerAction,
         date: new Date().toLocaleString(), 
@@ -22,13 +24,10 @@ var onActionExecuted = function(triggerAction, actionType){
     console.log(action);
 
     storage.save(action); 
-}
+});
 
 
 
-var board = require('./modules/board')(onActionExecuted);
-
-board.init();
 
 
 
