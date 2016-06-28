@@ -4,7 +4,7 @@
 var config = require('./conf/config');
 var mocks = require('./conf/mocks');
 var actions = require('./conf/actions');
-
+var moment = require('moment');
 //modules
 var storage = require('./modules/storage');
 var server = require('./modules/server');
@@ -18,7 +18,7 @@ board.init();
 board.setOnActionExecuted(function(triggerAction, actionType){
     var action = { 
         action: triggerAction,
-        date: new Date().toLocaleString('en-US', { hour12: false }), 
+        date: moment().format(config.dateFormat),
         actionType: actionType 
     };
     console.log(action);

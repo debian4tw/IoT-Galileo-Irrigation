@@ -1,6 +1,7 @@
 var http = require('http');
 var config = require('../conf/config');
 var mocks = require('../conf/mocks');
+var moment = require('moment');
 /**
   * Galileo server description. starts in config port
   * @namespace server
@@ -38,7 +39,7 @@ var server = (function(){
     function response(content){
         return JSON.stringify({
             success: true,
-            date: new Date().toLocaleString(),
+            date: moment().format(config.dateFormat),
             content: content
         });
     }
@@ -50,7 +51,7 @@ var server = (function(){
     function errorResponse(msg){
         return {
             success: false,
-            date: new Date().toLocaleString(),
+            date: moment().format(config.dateFormat),
             content: msg
         }
     }
