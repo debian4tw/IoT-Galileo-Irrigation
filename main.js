@@ -7,14 +7,12 @@ var actions = require('./conf/actions');
 
 //modules
 var storage = require('./modules/storage');
-var board = require('./modules/board');
 var server = require('./modules/server');
 
 storage.init();
 server.init();
-board.init();
 
-board.onActionExecuted = function(triggerAction, actionType){
+var onActionExecuted = function(triggerAction, actionType){
 
     var action = { 
         action: triggerAction,
@@ -25,6 +23,14 @@ board.onActionExecuted = function(triggerAction, actionType){
 
     storage.save(action); 
 }
+
+
+
+var board = require('./modules/board')(onActionExecuted);
+
+board.init();
+
+
 
 //Urls
 server.registerUrl('/getHistoricalData', function(){}, function(req, res){

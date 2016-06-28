@@ -1,7 +1,7 @@
 var config = {};
 
 //Board
-config.boardEnabled = false;
+config.boardEnabled = true;
 
 
 //Server

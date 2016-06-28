@@ -26,15 +26,19 @@ if(config.boardEnabled){
   */
 
 
-var board = (function(){
+var board = function(fnOnActionExecuted){
     
     var analogPin0;
-    var currentSensorState;
-    var currentActuatorState;
+    var currentSensorState = false;
+    var currentActuatorState = false;
     var actuator;
     var actions = [];
     var leds = {};
     
+
+    var onActionExecuted = fnOnActionExecuted;
+
+
     if(!mraa){        
         console.log('cannot initialize board, missing mraa');
         //return;
@@ -72,7 +76,7 @@ var board = (function(){
         
         for (var x in sensorStates){
             if( isInStateRange(humedad, sensorStates[x]) ){
-
+                prenderLed(x);
                 doAction(sensorStates[x].triggersActuatorState, "auto");
             }
         }
@@ -97,7 +101,7 @@ var board = (function(){
             
             currentActuatorState = triggerAction;
             //saveAction(new Date().toLocaleString(), triggerAction, actionType);
-            this.onActionExecuted(triggerAction, actionType);
+            onActionExecuted(triggerAction, actionType);
         }
 
     }
@@ -136,19 +140,29 @@ var board = (function(){
         return currentActuatorState;
     }
     
-    function prenderLed(){
-        console.log('prendo led');
-        myOnboardLed.write(1);
+    function prenderLed(state){
+        if(!mraa){
+            return;
+        }
+        if(currentSensorState != state){
+            console.log('prendo led ' + sensorStates[state].pin + " " +sensorStates[state].color);
+
+            leds[state].write(1);
+            if(currentSensorState){
+                apagarLed(currentSensorState);
+            }
+            currentSensorState = state;
+        }
+
+        //myOnboardLed.write(1);
     }
 
-    function apagarLed(){
+    function apagarLed(state){
         console.log('apago led');
-        myOnboardLed.write(0);
+        leds[state].write(0);
     }
   
-    function onActionExecuted(){
-        
-    }
+
         
     return {
         apagarLed : apagarLed,
@@ -159,7 +173,7 @@ var board = (function(){
         onActionExecuted: onActionExecuted
     }
     
-})();
+};
 
 
 module.exports = board;
