@@ -18,7 +18,7 @@ board.init();
 board.setOnActionExecuted(function(triggerAction, actionType){
     var action = { 
         action: triggerAction,
-        date: new Date().toLocaleString(), 
+        date: new Date().toLocaleString('en-US', { hour12: false }), 
         actionType: actionType 
     };
     console.log(action);
