@@ -30,4 +30,6 @@ mocks['/doAction2'] = {
 };
 
 
+mocks['humidity'] = 400;
+
 module.exports = mocks;

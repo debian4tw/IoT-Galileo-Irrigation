@@ -2,14 +2,14 @@ var sensorStates = {
 	1: {
         label: "Desconectado", 
         upperLimit: 10000, 
-        lowerLimit: 1000,
+        lowerLimit: 901,
         pin: 13,
         color: "Red",
         triggersActuatorState: 2
     },
 	2: { 
         label: "Seco", 
-        upperLimit: 999,
+        upperLimit: 900,
         lowerLimit: 500,
         pin: 7,
         color: "Yellow",

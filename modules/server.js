@@ -7,7 +7,7 @@ var moment = require('moment');
   * @namespace server
   */
 
-var server = (function(){
+var server = function(){
   
     /**
     * Stores registered urls
@@ -101,7 +101,7 @@ var server = (function(){
         response: response
     }
     
-})();
+};
     
 module.exports = server;
    

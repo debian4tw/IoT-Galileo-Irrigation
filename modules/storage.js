@@ -9,11 +9,11 @@ var sequelize = new Sequelize('sqlite:mydb.sqlite3', {
   * Storage description
   * @namespace
   */
-var storage = (function(){
+var storage = function(){
 
   //Action model
   var Action;
-
+  /** conecta al sqlite, crea tabla actions si no existe */
   function init(){
     sequelize
       .authenticate()
@@ -41,7 +41,7 @@ var storage = (function(){
     });
   }
 
-
+  /** findAll */
   function findAll(){
     /*return Action.findAndCountAll().then(function(users){
       console.log(JSON.stringify(users.rows));
@@ -49,7 +49,7 @@ var storage = (function(){
     });*/
     return Action.findAndCountAll();   
   }
-
+  /** guarda action en tabla actions */
   function save(act){
     Action.sync({force: false}).then(function(){
       return Action.create(act);
@@ -62,7 +62,7 @@ var storage = (function(){
     save: save
   }
 
-})();  
+};  
 
 
 module.exports = storage;

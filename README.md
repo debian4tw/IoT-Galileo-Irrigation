@@ -3,6 +3,16 @@ Galileo server
 
 > Compuesto de 3 módulos principales: server, board y storage
 
+### Tecnologías utilizadas
+* sqlite3. 
+* sequelize. 
+* galileo-io (mraa). 
+* underscore.
+* moment.
+* jsdoc.
+* events.
+* http.
+
 Para ejecutar desde una pc:
 
 
@@ -26,5 +36,5 @@ Para ejecutar desde una pc:
 
 	localhost:8080/getHistoricalData
 	localhost:8080/getState
-	localhost:8080/doAction1
-	localhost:8080/doAction2
+	localhost:8080/startAction
+	localhost:8080/stopAction

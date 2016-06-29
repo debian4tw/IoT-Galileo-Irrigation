@@ -8,6 +8,11 @@ var actuatorStates = {
         label : "No Regando",
         pin: 4,
         signal: 1
+    },
+
+    Enum: {
+        REGANDO: 1,
+        NO_REGANDO: 2
     }
 };
 

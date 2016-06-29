@@ -38,81 +38,93 @@ Using a ssh client:
 
 Article: https://software.intel.com/en-us/html5/articles/intel-xdk-iot-edition-nodejs-templates
 */
-var sensorStates = require('./conf/sensorStates');
-var actuatorStates = require('./conf/actuatorStates');
+var config = require('../conf/config');
+var events = require('events');
+var mraa = false;
+if(config.boardEnabled){
+    mraa = require('mraa');
+}
 
+
+var sensorStates = require('../conf/sensorStates');
+var actuatorStates = require('../conf/actuatorStates');
 
 
 /**
-  * Board description
+  * Encargado del io con la placa galileo: switch relay, leds, sensor de humedad, etc.
   * @namespace
   */
-var board = function(mraa){
+var board = function(){
     
     var analogPin0;
-    var currentSensorState;
-    var currentActuatorState;
+    var currentSensorState = false;
+    var currentActuatorState = 2;
     var actuator;
     var actions = [];
-    
-    if(!mraa){        
-        console.log('cannot initialize board, missing mraa');
-        //return;
-    }else{
-
-        console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to the Intel XDK console    
-        setupLeds();
-    }
-
-    /** init function */
-    function init(){
-        if(mraa){
-            loop();    
-        }
-        
-    }
+    var leds = {};
+    var event = new events.EventEmitter();  
     
 
     /** loop */
     function loop() {
       Medir_Humedad();
-      setTimeout(loop,3000); //call the indicated function after 1 second (1000 milliseconds)
     }    
+
+    /** 
+    inicializa mraa, instancia io de placa, inicia loop 
+    */
+    function init(){
+        console.log('init');
+        if(!mraa){        
+            console.log('cannot initialize board, missing mraa');
+        }else{
+            console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to the Intel XDK console    
+            setupLeds();
+        }
+
+        setInterval(function(){
+            loop();
+        },3000);        
+        
+    }
+    
+
 
     /** Medir Humedad */    
     function Medir_Humedad() {
-        //humedad1 = analogRead(A5);
-        //Serial.println(humedad1);
-        var humedad = analogPin0.read(); //read the value of the analog pin
-        
-        console.log(humedad); //write the value of the analog pin to the console        
-                        
-        //var humedad = 400;
-        
+        var humedad;
+        if(mraa){
+            humedad = analogPin0.read(); //read the value of the analog pin    
+        } else{
+            humedad = 400;
+        }
+                
+        console.log('humedad:' + humedad);             
+
         for (var x in sensorStates){
             if( isInStateRange(humedad, sensorStates[x]) ){
-                console.log(sensorStates[x].label);
-                doAction(sensorStates[x].triggerAction, "auto");
+                prenderLed(x);
+                doAction(sensorStates[x].triggersActuatorState, "auto");
             }
         }
 
     }
     
     /** doAction 
-    * @param {actionType} triggerAction
+    * @param {actionId} triggerAction
     * @param {actionType} actionType
     */    
     function doAction(triggerAction, actionType){
-
+        //console.log('doAction: ',currentActuatorState, triggerAction);
         if(currentActuatorState != triggerAction){            
             if(mraa){
                 actuator.write(actuatorStates[triggerAction].signal);    
             }
-            
             currentActuatorState = triggerAction;
-            saveAction(new Date().toLocaleString(), triggerAction, actionType);
+            //saveAction(new Date().toLocaleString(), triggerAction, actionType);
+            event.emit('ActionExecuted', triggerAction, actionType);
+            //onActionExecuted(triggerAction, actionType);
         }
-
     }
 
     /** saveAction */    
@@ -125,9 +137,6 @@ var board = function(mraa){
         actions.push(action);  
     }
 
-    function getActions(){
-        return actions;
-    }
     
     function isInStateRange(humedad, state){
         return (humedad > state.lowerLimit &amp;&amp; humedad &lt; state.upperLimit);
@@ -135,31 +144,43 @@ var board = function(mraa){
 
   
     function setupLeds(){
-        var myOnboardLed = new mraa.Gpio(13); //LED hooked up to built in pin
-        
-        myOnboardLed.dir(mraa.DIR_OUT); //set the gpio direction to output
-        
-        actuator = new mraa.Gpio(4);
+        //var myOnboardLed = new mraa.Gpio(13); //LED hooked up to built in pin        
+        //myOnboardLed.dir(mraa.DIR_OUT); 
+        for(x in sensorStates){
+            leds[x] = new mraa.Gpio(sensorStates[x].pin); //LED PIN
+            leds[x].dir(mraa.DIR_OUT); //set the gpio direction to output
+        }        
+
+        actuator = new mraa.Gpio(actuatorStates[1].pin);
         actuator.dir(mraa.DIR_OUT);
         
         analogPin0 = new mraa.Aio(0); //setup access analog input Analog pin #0 (A0)
-
     }    
  
     function getActuatorState(){
         return currentActuatorState;
     }
     
-    function prenderLed(){
-        console.log('prendo led');
-        myOnboardLed.write(1);
+    function prenderLed(state){
+        if(!mraa){
+            return;
+        }
+        if(currentSensorState != state){
+            console.log('prendo led ' + sensorStates[state].pin + " " +sensorStates[state].color);
+
+            leds[state].write(1);
+
+            if(currentSensorState){
+                apagarLed(currentSensorState);
+            }
+            currentSensorState = state;
+        }
     }
 
-    function apagarLed(){
+    function apagarLed(state){
         console.log('apago led');
-        myOnboardLed.write(0);
+        leds[state].write(0);
     }
-    
         
     return {
         apagarLed : apagarLed,
@@ -167,10 +188,11 @@ var board = function(mraa){
         getActuatorState: getActuatorState,
         doAction: doAction,
         init: init,
-        getActions: getActions
+        loop: loop,
+        event: event
     }
     
-}
+};
 
 
 module.exports = board;</code></pre>
@@ -189,7 +211,7 @@ module.exports = board;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Jun 24 2016 02:28:52 GMT-0300 (ART)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 29 2016 01:41:20 GMT-0300 (ART)
 </footer>
 
 <script> prettyPrint(); </script>
