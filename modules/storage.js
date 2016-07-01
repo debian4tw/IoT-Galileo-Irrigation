@@ -41,7 +41,7 @@ var storage = function(){
     });
   }
 
-  /** findAll */
+  /** devuelve todas las aciones */
   function findAll(){
     /*return Action.findAndCountAll().then(function(users){
       console.log(JSON.stringify(users.rows));
@@ -49,11 +49,20 @@ var storage = function(){
     });*/
     return Action.findAndCountAll();   
   }
-  /** guarda action en tabla actions */
+  /** guarda action en tabla actions 
+  @param {object} action - objecto con acción a ser guardada
+  */
   function save(act){
     Action.sync({force: false}).then(function(){
       return Action.create(act);
     });
+  }
+  /** crea data de testing para gráfico */
+  function createSampleData(){
+    Action.sync({force: false}).then(function(){
+      return Action.create(act);
+    });
+    
   }
 
   return {

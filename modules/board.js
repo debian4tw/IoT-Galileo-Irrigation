@@ -37,7 +37,7 @@ var board = function(){
     var event = new events.EventEmitter();  
     
 
-    /** loop */
+    /** Mide humedad, verifica en que estado se encuentra el sensor y actualiza switch relay y leds */
     function loop() {
         var humedad = Medir_Humedad();
         
@@ -69,7 +69,9 @@ var board = function(){
     
 
 
-    /** Medir Humedad */    
+    /** Mide humedad con sensor
+        @return {int} humedad
+     */    
     function Medir_Humedad() {
         var humedad;
         if(mraa){
@@ -85,8 +87,8 @@ var board = function(){
     }
     
     /** doAction 
-    * @param {actionId} triggerAction
-    * @param {actionType} actionType
+    * @param {int} triggerAction - acción a ser realizada
+    * @param {int} actionType - tipo de acción (manual, automática)
     */    
     function doAction(triggerAction, actionType){
         //console.log('doAction: ',currentActuatorState, triggerAction);
@@ -101,7 +103,7 @@ var board = function(){
         }
     }
 
-    /** saveAction */    
+    /** Graba en array en memoria la acción */    
     function saveAction(date, triggerAction, actionType){
          var action = { 
             action: triggerAction,

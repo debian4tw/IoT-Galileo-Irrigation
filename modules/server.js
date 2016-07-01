@@ -18,9 +18,8 @@ var server = function(){
 
     /**
      * Registers url and  callback to be matched.
-     * @param {string} url - The url of the book.
-     * @param {string} callback - The author of the book.
-     * @param {string} mock - The author of the book.     
+     * @param {string} url - url a ser matcheada.
+     * @param {string} callback - callback que se ejecuta.
      */    
     function registerUrl(url, callback, callbackAction){
         console.log('registering url' + url);
@@ -57,7 +56,7 @@ var server = function(){
     }
     
     /** 
-     * Starts server 
+     * Start server y escucha en puerto config.serverPort
      */    
     function init(){
       var httpServer = http.createServer(function(req, res) {

@@ -1,25 +1,33 @@
 Galileo server
 --------------
 
-> Compuesto de 3 módulos principales: server, board y storage
+> Sistema de riego automatizado con placa galileo, sensor de humedad y switch relay.
 
-### Tecnologías utilizadas
-* sqlite3. 
-* sequelize. 
-* galileo-io (mraa). 
-* underscore.
-* moment.
-* jsdoc.
-* events.
-* http.
+### Componentes principales
+* board
+* server
+* storage
 
-Para ejecutar desde una pc:
+### Modelos
+* sensor
+* actuator
+
+
+### npm modules used
+* sqlite3 
+* sequelize
+* galileo-io (mraa)
+* underscore
+* moment
+* jsdoc
+
+
+### Setup ambiente de desarrollo
 
 
 1) Instalar nodejs.
 
 2) Asegurarse de que en conf/config.js están los siguientes valores:
-
 
     config.boardEnabled = false (este solo se pone en true cuando corre en la galileo)
     config.mocksEnabled = true

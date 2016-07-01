@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/Users/matt/Downloads/google-news-sitemap"
 		}
 	]
 }
